@@ -18,13 +18,32 @@ public class JavaQuestionServiceTest {
 
     @Test
     public void add() {
-        assertThat(questionService.getAll()).isEmpty();
         Question question = new Question("test", "test");
+        assertThat(questionService.getAll()).isEmpty();
         questionService.add(question.getQuestion(), question.getAnswer());
         assertThat(questionService.getAll())
                 .hasSize(1)
                 .containsOnly(question);
 
+
+    }
+
+    @Test
+    public void remove() {
+        Question question = new Question("test", "test");
+        assertThat(questionService.getAll()).isEmpty();
+        questionService.remove(question);
+        assertThat(questionService.getAll()).isEmpty();
+
+
+    }
+
+    @Test
+    public void getRandomQuestionsTest() {
+        for (int i = 0; i <= 5; i++) {
+            add();
+        }
+        assertThat(questionService.getRandomQuestions());
 
     }
 

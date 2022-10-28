@@ -3,8 +3,8 @@ package com.example.Coursework_2.QuestionClass;
 import java.util.Objects;
 
 public class Question {
-    String question;
-    String answer;
+    private final String question;
+    private final String answer;
 
     public Question(String question, String answer) {
         this.question = question;
